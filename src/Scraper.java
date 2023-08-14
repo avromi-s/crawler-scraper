@@ -56,7 +56,7 @@ public class Scraper {
         this.pagesVisited = new HashSet<>();
         this.allEncounteredPageUrls = new HashSet<>();
 
-        // Add all previously encountered urls from the db to their respective collections
+        // Load all previously encountered urls from the db
         Bson projection = Projections.fields(Projections.include("urls"), Projections.excludeId());
 
         // Pages to be visited
