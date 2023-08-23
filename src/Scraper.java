@@ -56,7 +56,7 @@ public class Scraper {
         this.pagesVisited = new HashSet<>();
         this.allEncounteredPageUrls = new HashSet<>();
 
-        // Load all previously encountered urls from the db
+        // Add all previously encountered urls from the db to their respective collections
         Bson projection = Projections.fields(Projections.include("urls"), Projections.excludeId());
 
         // Pages to be visited
@@ -315,8 +315,8 @@ public class Scraper {
             Matcher matcher = itemPattern.matcher(x.text());
             // matcher.find() must be called before calling .group() so that .group() gets results.
             if (matcher.find()) {
-                String thisCourseCode = matcher.group();
-                data.put(thisCourseCode, data.containsKey(thisCourseCode) ? data.get(thisCourseCode) + 1 : 1);
+                String thisMatch = matcher.group();
+                data.put(thisMatch, data.containsKey(thisMatch) ? data.get(thisMatch) + 1 : 1);
             }
         });
         return data;
