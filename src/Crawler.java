@@ -1,4 +1,4 @@
-// Avromi Schneierson - 5.30.2023
+// 5.30.2023
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Projections;
